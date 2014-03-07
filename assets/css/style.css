@@ -1,0 +1,8 @@
+body{
+	width: 99%;
+	text-align: center;
+	font: 12px/14px arial;
+}
+canvas{
+	display: inline;
+}
