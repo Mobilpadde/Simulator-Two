@@ -105,7 +105,7 @@ var build = {
 		},
 		init: function(){
 			for(var i=0; i<5; i++){ homeland.dwell.new(); }
-			homeland.dwell.changeMinds();
+			homeland.dwell.rethink();
 			build.game.draw();
 
 			// And at last, because the people got mad at him, he decided let them age once a year, to eventually grow old and die... Yay

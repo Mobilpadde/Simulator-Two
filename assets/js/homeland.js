@@ -87,7 +87,7 @@ var homeland = {
 								}else{
 									(function(_this){
 										setTimeout(function(){
-											_this.actions.changeMind();
+											_this.actions.think();
 										}, _this.mind.patience)
 									})(_this)
 								}
@@ -101,7 +101,7 @@ var homeland = {
 								(Math.round(Math.random()) ? _this.y-- : _this.y++);
 							}
 						}else{
-							_this.actions.changeMind();
+							_this.actions.think();
 						}
 					},
 					work: function(){
@@ -119,7 +119,7 @@ var homeland = {
 								payment = parseInt(payment);
 								_this.wealth += payment;
 								build.log.work(_this.name, payment, hours);
-								_this.actions.changeMind();
+								_this.actions.think();
 							}, _this.mind.patience)
 						})(_this)
 					},
@@ -139,7 +139,7 @@ var homeland = {
 									}
 									if(s.actions.heal.indexOf(_this.mind.pos.wish.place) > -1){ _this.actions.heal() }
 								}
-								_this.actions.changeMind();
+								_this.actions.think();
 							}, _this.mind.patience)
 						})(_this)
 					},
@@ -156,7 +156,7 @@ var homeland = {
 							setTimeout(function(){
 								clearInterval(interval);
 								_this.mind.patience = (s.sizes.wait.rndmNmbr() * 1000);
-								_this.actions.changeMind();
+								_this.actions.think();
 							}, _this.mind.patience)
 						})(_this)
 					},
@@ -165,7 +165,8 @@ var homeland = {
 						_this.mind.drunkness = 0;
 						build.log.healthy(_this.name);
 					},
-					changeMind: function(){ // Must be incredibly sad to have your mind controlled by a simple function
+					think: function(){ // Must be incredibly sad to have your mind controlled by a simple function
+						/*
 						var placeChosen = false, info = map.pckRndmX(), result, res = new Array(), start = new Date().getTime();
 						while(!placeChosen && !((new Date().getTime() - start) > 5000)){
 							if(
@@ -191,10 +192,36 @@ var homeland = {
 											  graph.nodes[Math.round(_this.y / s.sizes.height)][Math.round(_this.x / s.sizes.width)], 
 											  graph.nodes[_this.mind.pos.wish.y][_this.mind.pos.wish.x], false);
 
-						if(result[0] == undefined){ _this.actions.changeMind(); }else{
+						if(result[0] == undefined){ _this.actions.think(); }else{
 							for(var i = 0; i < result.length; i++){ res.push([result[i].y, result[i].x]); }
 							_this.mind.pos.wish.path = res;
 						
+
+							_this.mind.pos.now.step = 0;
+							_this.stop = false;
+							_this.waiting = false;
+							_this.arrived = false;
+						}
+						*/
+						var result, res = new Array(), info = new Object(), location = ["bar", "factory", "grass", "hospital", "pond", "mall", "home"].pckRndm();
+						if(location == "home"){
+							info.place = "shack";
+							info.x = _this.home.x; info.y = _this.home.y;
+							_this.mind.pos.wish = info;
+						}else{
+							destination = homeland.places[location].pckRndm();
+							info.place = location;
+							info.x = destination[0]; info.y = destination[1];
+							_this.mind.pos.wish = info;
+						}
+
+						result = astar.search(graph.nodes, 
+											  graph.nodes[Math.round(_this.y / s.sizes.height)][Math.round(_this.x / s.sizes.width)], 
+											  graph.nodes[_this.mind.pos.wish.y][_this.mind.pos.wish.x], false);
+
+						if(result[0] == undefined){ _this.actions.think(); }else{
+							for(var i = 0; i < result.length; i++){ res.push([result[i].y, result[i].x]); }
+							_this.mind.pos.wish.path = res;
 
 							_this.mind.pos.now.step = 0;
 							_this.stop = false;
@@ -208,6 +235,7 @@ var homeland = {
 								homeland.residents[i].home.occupied = false;
 								homeland.residents.splice(i, 1);
 								build.log.dead(_this.name, _this.gender);
+								break;
 							}
 						}
 					}
@@ -219,8 +247,8 @@ var homeland = {
 				build.log.homelandFull("Homeland is full, we can no longer support new residents");
 			}
 		},
-		changeMinds: function(){ // Find a new place for dwell and calculate a path
-			for(var i = 0; i < homeland.residents.length; i++){ homeland.residents[i].actions.changeMind(); }
+		rethink: function(){ // Find a new place for dwell and calculate a path
+			for(var i = 0; i < homeland.residents.length; i++){ homeland.residents[i].actions.think(); }
 		}
 	},
 	places: {
@@ -255,7 +283,7 @@ var homeland = {
 			yrs: function(i){ return homeland.time -= i * 60 * 24 * s.sizes.yearLength }
 		}
 	},
-	digital: function(yd, t){ // Make this work, somehow
+	digital: function(yd, t){
 		var t = t || false,
 			hours = Math.floor(homeland.t.hrs(t) % 24),
 			minutes = Math.floor(homeland.t.min(t) % 60);
