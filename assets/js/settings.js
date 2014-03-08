@@ -64,13 +64,13 @@ map = [ // b Bar; f Factory; g Grass; h Hospital; m Mall; p Pond; r Road; s Shac
 		["0",   "r", "0", "0", "0", "0", "0", "r", "r", "r", "g", "g", "g", "g", "r"],
 		["0",   "r", "0", "0", "0", "0", "0", "r", "b", "r", "r", "r", "r", "r", "r"],
 		["0",   "r", "0", "0", "0", "0", "0", "r", "b", "r", "s", "r", "s", "s", "r"],
-		["0",   "r", "0", "0", "0", "0", "0", "r", "x", "r", "s", "r", "r", "r", "r"],
-		["0",   "r", "g", "g", "0", "0", "0", "r", "x", "r", "s", "r", "s", "s", "r"],
-		["0",   "r", "p", "m", "m", "0", "0", "r", "x", "r", "s", "r", "s", "s", "r"],
+		["0",   "r", "0", "0", "0", "0", "0", "r", "h", "r", "s", "r", "r", "r", "r"],
+		["0",   "r", "g", "g", "0", "0", "0", "r", "f", "r", "s", "r", "s", "s", "r"],
+		["0",   "r", "p", "m", "m", "0", "0", "r", "f", "r", "s", "r", "s", "s", "r"],
 		["0",   "r", "r", "r", "r", "r", "r", "r", "r", "r", "r", "r", "r", "r", "r"],
-		["0",   "b", "b", "g", "p", "p", "b", "g", "g", "g", "g", "g", "g", "g", "g"]
+		["0",   "b", "b", "g", "p", "p", "b", "g", "g", "g", "g", "g", "g", "g", "m"]
 ], 
 names = [
-	["Conrad", "Dan", "Matthew", "J.D.", "Joel", "Jimmy", "Jerrie", "Tim", "Hugo", "Josh", "Jason"],
-	["Sandra", "Molly", "Rebecca", "Claire", "Deb", "Roxy", "Bonnie", "Jojo", "Ana", "Sara", "Joanna"]
+	["Conrad", "Dan", "Matthew", "J.D.", "Joel", "Jimmy", "Jerrie", "Tim", "Hugo", "Josh", "Jason", "Mason", "Aaron", "Jonah", "Jacob", "Noah", "John", "Kyle"],
+	["Sandra", "Molly", "Rebecca", "Claire", "Deb", "Roxy", "Bonnie", "Jojo", "Ana", "Sara", "Joanna", "Ann", "Jules", "Chloe", "Emily", "Emma", "Jessica", "Lily"]
 ]

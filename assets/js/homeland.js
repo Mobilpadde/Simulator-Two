@@ -203,12 +203,16 @@ var homeland = {
 							_this.arrived = false;
 						}
 						*/
-						var result, res = new Array(), info = new Object(), location = ["bar", "factory", "grass", "hospital", "pond", "mall", "home"].pckRndm();
+						var result, res = [], info = {}, locations = ["bar", "factory", "grass", "hospital", "pond", "mall", "home"], location = locations.pckRndm();
 						if(location == "home"){
 							info.place = "shack";
 							info.x = _this.home.x; info.y = _this.home.y;
 							_this.mind.pos.wish = info;
 						}else{
+							while(!homeland.places[location].length){ // Array is empty
+								location = locations.pckRndm()
+							}
+
 							destination = homeland.places[location].pckRndm();
 							info.place = location;
 							info.x = destination[0]; info.y = destination[1];

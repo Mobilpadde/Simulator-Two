@@ -73,20 +73,22 @@ Array.prototype.redo = function(){
 				case "p": this[y][x] = "pond"; 		homeland.places.pond.push([x, y]); break;
 				case "r": this[y][x] = "road"; 		homeland.places.road.push([x, y]); break;
 				case "s": this[y][x] = "shack"; 	homeland.residences.push({"x": x, "y": y, "occupied": false, "food": 50}); break;
+				/*
 				case "x": 
 					this[y][x] = rndmPrprt(s.colours.types);
 					while(this[y][x] == "road"){ this[y][x] = rndmPrprt(s.colours.types); }
 					//if(this[y][x] == "shack") homeland.residences.push({"x": x, "y": y, "occupied": false, "food": 50});
 					switch(this[y][x]){
-						case "bar": homeland.places.bar.push([x, y]); break;
-						case "factory": homeland.places.factory.push([x, y]); break;
-						case "grass": homeland.places.grass.push([x, y]); break;
-						case "hospital": homeland.places.hospital.push([x, y]); break;
-						case "mall": homeland.places.mall.push([x, y]); break;
-						case "pond": homeland.places.pond.push([x, y]); break;
-						case "shack": homeland.residences.push({"x": x, "y": y, "occupied": false, "food": 50}); break;
+						case "bar": 		homeland.places.bar.push([x, y]); break;
+						case "factory": 	homeland.places.factory.push([x, y]); break;
+						case "grass": 		homeland.places.grass.push([x, y]); break;
+						case "hospital": 	homeland.places.hospital.push([x, y]); break;
+						case "mall": 		homeland.places.mall.push([x, y]); break;
+						case "pond": 		homeland.places.pond.push([x, y]); break;
+						case "shack": 		homeland.residences.push({"x": x, "y": y, "occupied": false, "food": 50}); break;
 					}
 					break;
+				*/
 			}
 		}
 	}
