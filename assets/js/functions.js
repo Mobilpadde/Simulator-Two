@@ -150,12 +150,20 @@ Array.prototype.fdClrs = function(step, steps){
 
 // Log into summary
 var start = homeland.t.day();
+var $console = document.getElementById('console');
 log = function(data, t){
+	var line = document.createElement('li');
 	if(!t){
 		if(!(homeland.summary.arr[(homeland.t.day() - start)] instanceof Array)){ homeland.summary.arr[(homeland.t.day() - start)] = new Array(); }
 		homeland.summary.arr[(homeland.t.day() - start)].push([data, homeland.time]);
 		console.log("%c%s%c %s", "color:white; background:black;", "[" + homeland.digital(true) + "]", "color:black; background:white;", data);
+		line.innerHTML = "<span>[" + homeland.digital(true) + "]</span> " + data;
+
 	}else{
 		console.log("%c%s%c %s", "color:white; background:black;", "[" + homeland.digital(true, t) + "]", "color:black; background:white;", data);
+		line.innerHTML = "<span>[" + homeland.digital(true, t) + "]</span> " + data;
 	}
+
+	$console.appendChild(line);
+	$console.scrollTop = $console.scrollHeight; // Scrolls to bottom of list
 };
