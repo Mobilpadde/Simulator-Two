@@ -6,3 +6,21 @@ body{
 canvas{
 	display: inline;
 }
+#console{
+	margin: 0 auto;
+	padding: 0;
+	width: 665px;
+	overflow-y: scroll;
+	height: 300px;
+	text-align: left;
+	border: 1px solid black;
+}
+#console > li {
+	list-style: none;
+	padding: 7px 0;
+}
+#console > li > span {
+	background-color: black;
+	color: white;
+	padding: 1px 3px;
+}
