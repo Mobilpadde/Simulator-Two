@@ -5,4 +5,4 @@ A stupid, and buggy, simulator.
 
 --------------------------------------------------
 
-Go to [Mcordes.me/sim/](http://mcordes.me/sim/) and open your console
+Simply go to [Mcordes.me/sim/](http://mcordes.me/sim/) and let the world happen
