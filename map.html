@@ -37,10 +37,10 @@
 				c.height = s.sizes.height * (s.sizes.num.y + 1);
 
 				if(window.location.hash){
-					var hashMap = JSON.parse(window.location.hash.replace("#", ""));
+					var hashMap = JSON.parse(decodeURI(window.location.hash.replace("#", "")));
 					var map = ((typeof hashMap == "object") ? hashMap : map);
 					var eMap = JSON.parse(JSON.stringify(map)).mapify(); // Exported Map syntaxes
-					document.getElementById("use").href = "index.html#" + JSON.stringify(eMap);
+					document.getElementById("use").href = "index.html#" + encodeURI(JSON.stringify(eMap));
 				}
 
 				legend = function(){
@@ -114,7 +114,7 @@
 					}
 					if(!ctrl.type) map[ctrl.y][ctrl.x] = 0;
 					var eMap = JSON.parse(JSON.stringify(map)).mapify(); // Exported Map syntaxes
-					document.getElementById("use").href = "index.html#" + JSON.stringify(eMap);
+					document.getElementById("use").href = "index.html#" + encodeURI(JSON.stringify(eMap));
 				}
 				draw = function(){
 					//ctx.clearRect(0, 0, s.sizes.total.width, s.sizes.total.height);

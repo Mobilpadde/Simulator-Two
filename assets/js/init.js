@@ -2,7 +2,7 @@ var c = document.getElementById("canvas"),
 	ctx = c.getContext("2d");
 
 if(window.location.hash){
-	var hashMap = JSON.parse(window.location.hash.replace("#", ""));
+	var hashMap = JSON.parse(decodeURI(window.location.hash.replace("#", "")));
 	var map = ((typeof hashMap == "object") ? hashMap : map);
 }
 var graph = new Graph(JSON.parse(JSON.stringify(map)).graphify());
