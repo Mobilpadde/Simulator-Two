@@ -167,7 +167,7 @@ var homeland = {
 					},
 					think: function(){ // Must be incredibly sad to have your mind controlled by a simple function
 						var placeChosen = false, info = map.pckRndmX(), result, res = new Array(), start = new Date().getTime();
-						while(!placeChosen && !((new Date().getTime() - start) > 5000)){
+						while(!placeChosen && !((new Date().getTime() - start) > 3000)){
 							if(
 								(s.actions.noGo.indexOf(info.place) > -1) ||  // You shouldn't really visit these places
 							   	(_this.mind.drunkness > 5 && s.actions.work.indexOf(info.place) > -1) || // Don't work if you're drunk as fuck
