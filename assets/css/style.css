@@ -6,3 +6,27 @@ body{
 canvas{
 	display: inline;
 }
+#edit{
+	display: block;
+}
+#console{
+	font-size: 11px;
+	font-family: Menlo, Consolas, "Lucida Console", "dejavu sans" mono, monospace;
+	margin: 0px auto;
+	padding: 0px;
+	width: 665px;
+	overflow-y: scroll;
+	height: 250px;
+	text-align: left;
+	border: 0px solid black;
+}
+#console > li {
+	list-style: none;
+	padding: 2px 0px;
+	border-bottom: 1px solid rgba(150, 150, 150, 0.1);
+}
+#console > li > span {
+	background-color: black;
+	color: white;
+	padding: 1px 3px;
+}
