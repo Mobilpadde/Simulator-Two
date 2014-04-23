@@ -166,6 +166,7 @@ var homeland = {
 						build.log.healthy(_this.name);
 					},
 					think: function(){ // Must be incredibly sad to have your mind controlled by a simple function
+						/*
 						var placeChosen = false, info = map.pckRndmX(), result, res = new Array(), start = new Date().getTime();
 						while(!placeChosen && !((new Date().getTime() - start) > 3000)){
 							if(
@@ -201,7 +202,7 @@ var homeland = {
 							_this.waiting = false;
 							_this.arrived = false;
 						}
-						/*
+						*/
 						var result, res = [], info = {}, locations = ["bar", "factory", "grass", "hospital", "pond", "mall", "home"], location = locations.pckRndm();
 						if(location == "home"){
 							info.place = "shack";
@@ -231,7 +232,6 @@ var homeland = {
 							_this.waiting = false;
 							_this.arrived = false;
 						}
-						*/
 					},
 					die: function(){ // DIE, MOFO! D:<
 						for(var i = 0; i < homeland.residents.length; i++){

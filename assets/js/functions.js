@@ -165,5 +165,5 @@ log = function(data, t){
 	}
 
 	$console.appendChild(line);
-	$console.scrollTop = $console.scrollHeight; // Scrolls to bottom of list
+	$console.scrollTop = $console.scrollHeight + 16; // Scrolls to bottom of list
 };
